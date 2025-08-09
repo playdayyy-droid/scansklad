@@ -16,6 +16,11 @@ steps:
 
   - name: Flutter pub get
     run: flutter pub get
+  - name: Ensure Android project exists
+    run: |
+      if [ ! -d "android" ]; then
+        flutter create . --platforms=android
+      fi
 
   # ВАЖНО: создаём android-проект, если его нет в репозитории
   - name: Ensure Android project exists
